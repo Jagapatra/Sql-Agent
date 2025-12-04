@@ -13,6 +13,7 @@ export async function POST(req: Request) {
     model:google('gemini-2.5-flash'),
     messages: convertToModelMessages(messages),
   });
+  console.log("API Route Hit")
 
   return result.toUIMessageStreamResponse();
 }

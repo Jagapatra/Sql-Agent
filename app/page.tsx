@@ -8,8 +8,10 @@ export default function Chat() {
   const { messages, sendMessage } = useChat();
   return (
     <div className="flex flex-col w-full max-w-md py-24 mx-auto stretch">
+      console.log("Hi")
       {messages.map(message => (
         <div key={message.id} className="whitespace-pre-wrap">
+          console.log("New")
           {message.role === 'user' ? 'User: ' : 'AI: '}
           {message.parts.map((part, i) => {
             switch (part.type) {
@@ -18,6 +20,7 @@ export default function Chat() {
             }
           })}
         </div>
+
       ))}
 
       <form
@@ -25,6 +28,7 @@ export default function Chat() {
           e.preventDefault();
           sendMessage({ text: input });
           setInput('');
+          console.log("Submitted")
         }}
       >
         <input
